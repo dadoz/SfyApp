@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MXM track list</string>
+    <string name="country_hint">Country</string>
+    <string name="page_size_hint">Page Size</string>
+    <string name="find_button">FIND</string>
+    <string name="retrieve_error">Oh Snap! You got some error on your request!</string>
+    <string name="no_data_found">Oh Snap! \nNo data has been found!</string>
+    <string name="intro">Insert track list data</string>
+    <string name="no_input_data">No Input data</string>
+    <string name="error_network_no_network">Network error</string>
+    <string name="server_error">Server Error</string>
+    <string name="has_lyrics_flag_text">Has Lyrics</string>
+    <string name="load_more_track_text">Load more tracks</string>
+    <string name="max_default">Page size invalid: max available 100</string>
+</resources>

@@ -1,0 +1,45 @@
+// Define versions in a single place
+ext {
+    // Support library and architecture components support minSdk 14 and above.
+    minSdkVersion = 19
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+
+    // App dependencies
+    supportLibraryVersion = '27.1.1'
+    retrofitVersion = '2.2.0'
+    okhttpVersion = '3.10.0'
+    rxjavaVersion = '2.0.2'
+    glideVersion = '3.7.0'
+    gsonVersion = '2.8.0'
+    mockwebserverVersion = '3.6.0'
+    glassfishannotationVersion = '10.0-b28'
+    junitVersion = '4.12'
+    daggerVersion = '2.11'
+    espressoVersion = '2.2.2'
+    butterknifeVersion = '8.8.1'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        //realmio
+        classpath "io.realm:realm-gradle-plugin:5.1.0"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
