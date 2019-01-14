@@ -1,10 +1,10 @@
-package com.application.mxm.soundtracks.data;
+package com.application.sfy.data;
 
-import com.application.mxm.soundtracks.BuildConfig;
-import com.application.mxm.soundtracks.data.local.Local;
-import com.application.mxm.soundtracks.data.model.Track;
-import com.application.mxm.soundtracks.data.remote.Remote;
-import com.application.mxm.soundtracks.utils.Utils;
+import com.application.sfy.BuildConfig;
+import com.application.sfy.data.local.Local;
+import com.application.sfy.data.model.Track;
+import com.application.sfy.data.remote.Remote;
+import com.application.sfy.utils.Utils;
 
 import java.util.List;
 

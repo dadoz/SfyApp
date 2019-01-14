@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.tracklist;
+package com.application.sfy.tracklist;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.application.mxm.soundtracks.R;
-import com.application.mxm.soundtracks.data.model.Track;
-import com.application.mxm.soundtracks.utils.Utils;
+import com.application.sfy.R;
+import com.application.sfy.data.model.Track;
+import com.application.sfy.utils.Utils;
 
 import java.util.List;
 

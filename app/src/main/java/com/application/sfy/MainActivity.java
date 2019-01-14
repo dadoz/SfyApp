@@ -1,12 +1,12 @@
-package com.application.mxm.soundtracks;
+package com.application.sfy;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.application.mxm.soundtracks.tracklist.TrackListActivity;
-import com.application.mxm.soundtracks.ui.TrackInputDataView;
+import com.application.sfy.tracklist.TrackListActivity;
+import com.application.sfy.ui.TrackInputDataView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

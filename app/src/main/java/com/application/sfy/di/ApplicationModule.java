@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.di;
+package com.application.sfy.di;
 
 import android.app.Application;
 import android.content.Context;

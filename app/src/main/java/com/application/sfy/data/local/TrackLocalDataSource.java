@@ -1,12 +1,12 @@
-package com.application.mxm.soundtracks.data.local;
+package com.application.sfy.data.local;
 
 
 import android.util.Log;
 
-import com.application.mxm.soundtracks.data.TrackDataSource;
-import com.application.mxm.soundtracks.data.model.Track;
-import com.application.mxm.soundtracks.data.model.TrackMap;
-import com.application.mxm.soundtracks.utils.Utils;
+import com.application.sfy.data.TrackDataSource;
+import com.application.sfy.data.model.Track;
+import com.application.sfy.data.model.TrackMap;
+import com.application.sfy.utils.Utils;
 
 import java.util.List;
 

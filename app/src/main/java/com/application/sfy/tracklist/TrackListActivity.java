@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.tracklist;
+package com.application.sfy.tracklist;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,11 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.application.mxm.soundtracks.R;
-import com.application.mxm.soundtracks.data.model.Track;
-import com.application.mxm.soundtracks.lyric.LyricActivity;
-import com.application.mxm.soundtracks.ui.EmptyView;
-import com.application.mxm.soundtracks.utils.Utils;
+import com.application.sfy.R;
+import com.application.sfy.data.model.Track;
+import com.application.sfy.lyric.LyricActivity;
+import com.application.sfy.ui.EmptyView;
+import com.application.sfy.utils.Utils;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import dagger.android.support.DaggerAppCompatActivity;
 
-import static com.application.mxm.soundtracks.MainActivity.TRACK_PARAMS_KEY;
+import static com.application.sfy.MainActivity.TRACK_PARAMS_KEY;
 
 /**
  * stargazer activity

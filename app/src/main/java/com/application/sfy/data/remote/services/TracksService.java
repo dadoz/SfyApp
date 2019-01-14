@@ -1,8 +1,8 @@
-package com.application.mxm.soundtracks.data.remote.services;
+package com.application.sfy.data.remote.services;
 
 
-import com.application.mxm.soundtracks.data.model.Lyric;
-import com.application.mxm.soundtracks.data.model.Track;
+import com.application.sfy.data.model.Lyric;
+import com.application.sfy.data.model.Track;
 
 import java.util.List;
 

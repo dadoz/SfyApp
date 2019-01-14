@@ -1,7 +1,7 @@
-package com.application.mxm.soundtracks.data;
+package com.application.sfy.data;
 
 
-import com.application.mxm.soundtracks.data.model.Lyric;
+import com.application.sfy.data.model.Lyric;
 
 import io.reactivex.Observable;
 

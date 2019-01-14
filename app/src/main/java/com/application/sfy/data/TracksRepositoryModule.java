@@ -1,9 +1,9 @@
-package com.application.mxm.soundtracks.data;
+package com.application.sfy.data;
 
-import com.application.mxm.soundtracks.data.local.Local;
-import com.application.mxm.soundtracks.data.local.TrackLocalDataSource;
-import com.application.mxm.soundtracks.data.remote.Remote;
-import com.application.mxm.soundtracks.data.remote.TrackNetworkDataSource;
+import com.application.sfy.data.local.Local;
+import com.application.sfy.data.local.TrackLocalDataSource;
+import com.application.sfy.data.remote.Remote;
+import com.application.sfy.data.remote.TrackNetworkDataSource;
 
 import javax.inject.Singleton;
 

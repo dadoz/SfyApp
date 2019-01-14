@@ -1,10 +1,10 @@
-package com.application.mxm.soundtracks.di;
+package com.application.sfy.di;
 
 import android.app.Application;
 
-import com.application.mxm.soundtracks.SoundtrackApplication;
-import com.application.mxm.soundtracks.data.LyricsRepositoryModule;
-import com.application.mxm.soundtracks.data.TracksRepositoryModule;
+import com.application.sfy.SoundtrackApplication;
+import com.application.sfy.data.LyricsRepositoryModule;
+import com.application.sfy.data.TracksRepositoryModule;
 
 import javax.inject.Singleton;
 

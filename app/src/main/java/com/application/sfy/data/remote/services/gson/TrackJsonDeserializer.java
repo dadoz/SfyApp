@@ -1,6 +1,6 @@
-package com.application.mxm.soundtracks.data.remote.services.gson;
+package com.application.sfy.data.remote.services.gson;
 
-import com.application.mxm.soundtracks.data.model.Track;
+import com.application.sfy.data.model.Track;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;

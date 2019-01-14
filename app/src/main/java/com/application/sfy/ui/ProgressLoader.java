@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.ui;
+package com.application.sfy.ui;
 
 import io.reactivex.functions.Action;
 

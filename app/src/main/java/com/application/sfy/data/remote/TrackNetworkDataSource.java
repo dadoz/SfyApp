@@ -1,8 +1,8 @@
-package com.application.mxm.soundtracks.data.remote;
+package com.application.sfy.data.remote;
 
-import com.application.mxm.soundtracks.data.TrackDataSource;
-import com.application.mxm.soundtracks.data.model.Track;
-import com.application.mxm.soundtracks.data.remote.services.RetrofitServiceRx;
+import com.application.sfy.data.TrackDataSource;
+import com.application.sfy.data.model.Track;
+import com.application.sfy.data.remote.services.RetrofitServiceRx;
 
 import java.util.List;
 

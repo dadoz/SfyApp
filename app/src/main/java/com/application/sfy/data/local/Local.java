@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.data.local;
+package com.application.sfy.data.local;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

@@ -1,7 +1,7 @@
-package com.application.mxm.soundtracks.data.exceptions;
+package com.application.sfy.data.exceptions;
 
 
-import com.application.mxm.soundtracks.R;
+import com.application.sfy.R;
 
 public class ApiException extends RuntimeException {
 

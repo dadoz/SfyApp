@@ -1,9 +1,9 @@
-package com.application.mxm.soundtracks.lyric;
+package com.application.sfy.lyric;
 
 import android.util.SparseArray;
 
-import com.application.mxm.soundtracks.BasePresenter;
-import com.application.mxm.soundtracks.data.model.Lyric;
+import com.application.sfy.BasePresenter;
+import com.application.sfy.data.model.Lyric;
 
 public interface LyricContract {
 

@@ -1,9 +1,9 @@
-package com.application.mxm.soundtracks.di;
+package com.application.sfy.di;
 
-import com.application.mxm.soundtracks.lyric.LyricActivity;
-import com.application.mxm.soundtracks.lyric.LyricPresenterModule;
-import com.application.mxm.soundtracks.tracklist.TrackListActivity;
-import com.application.mxm.soundtracks.tracklist.TrackPresenterModule;
+import com.application.sfy.lyric.LyricActivity;
+import com.application.sfy.lyric.LyricPresenterModule;
+import com.application.sfy.tracklist.TrackListActivity;
+import com.application.sfy.tracklist.TrackPresenterModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

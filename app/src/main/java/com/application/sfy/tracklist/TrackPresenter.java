@@ -1,10 +1,10 @@
-package com.application.mxm.soundtracks.tracklist;
+package com.application.sfy.tracklist;
 
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.application.mxm.soundtracks.data.TracksRepository;
-import com.application.mxm.soundtracks.ui.ProgressLoader;
+import com.application.sfy.data.TracksRepository;
+import com.application.sfy.ui.ProgressLoader;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

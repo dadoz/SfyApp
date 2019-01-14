@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks;
+package com.application.sfy;
 
 public interface BasePresenter {
 }

@@ -1,10 +1,10 @@
-package com.application.mxm.soundtracks.lyric;
+package com.application.sfy.lyric;
 
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.application.mxm.soundtracks.data.LyricsRepository;
-import com.application.mxm.soundtracks.data.model.Lyric;
+import com.application.sfy.data.LyricsRepository;
+import com.application.sfy.data.model.Lyric;
 
 import java.lang.ref.WeakReference;
 

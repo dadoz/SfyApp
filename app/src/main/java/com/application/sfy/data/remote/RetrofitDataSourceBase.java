@@ -1,7 +1,7 @@
-package com.application.mxm.soundtracks.data.remote;
+package com.application.sfy.data.remote;
 
-import com.application.mxm.soundtracks.data.exceptions.ApiException;
-import com.application.mxm.soundtracks.data.exceptions.NetworkException;
+import com.application.sfy.data.exceptions.ApiException;
+import com.application.sfy.data.exceptions.NetworkException;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableTransformer;

@@ -1,11 +1,11 @@
-package com.application.mxm.soundtracks.data;
+package com.application.sfy.data;
 
 import android.content.Context;
 
-import com.application.mxm.soundtracks.BuildConfig;
-import com.application.mxm.soundtracks.data.local.Local;
-import com.application.mxm.soundtracks.data.model.Lyric;
-import com.application.mxm.soundtracks.data.remote.Remote;
+import com.application.sfy.BuildConfig;
+import com.application.sfy.data.local.Local;
+import com.application.sfy.data.model.Lyric;
+import com.application.sfy.data.remote.Remote;
 
 import javax.inject.Inject;
 

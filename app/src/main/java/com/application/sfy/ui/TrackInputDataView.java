@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.ui;
+package com.application.sfy.ui;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 
-import com.application.mxm.soundtracks.R;
+import com.application.sfy.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

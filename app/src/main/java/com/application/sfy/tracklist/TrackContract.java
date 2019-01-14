@@ -1,9 +1,9 @@
-package com.application.mxm.soundtracks.tracklist;
+package com.application.sfy.tracklist;
 
 import android.util.SparseArray;
 
-import com.application.mxm.soundtracks.BasePresenter;
-import com.application.mxm.soundtracks.data.model.Track;
+import com.application.sfy.BasePresenter;
+import com.application.sfy.data.model.Track;
 
 import java.util.List;
 

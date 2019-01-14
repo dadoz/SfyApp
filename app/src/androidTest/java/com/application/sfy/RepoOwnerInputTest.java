@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks;
+package com.application.sfy;
 
 import android.support.design.widget.TextInputLayout;
 import android.support.test.rule.ActivityTestRule;

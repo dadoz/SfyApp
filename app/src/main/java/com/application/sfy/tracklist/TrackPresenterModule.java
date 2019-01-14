@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.tracklist;
+package com.application.sfy.tracklist;
 
 import dagger.Binds;
 import dagger.Module;

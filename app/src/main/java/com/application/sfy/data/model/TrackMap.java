@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.data.model;
+package com.application.sfy.data.model;
 
 import java.util.List;
 

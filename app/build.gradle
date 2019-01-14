@@ -4,13 +4,13 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
-        applicationId "com.application.mxm.soundtracks"
+        applicationId "com.application.sfy"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "MXM_BASE_URL", "\"http://api.musixmatch.com/ws/1.1/\""
+        buildConfigField "String", "SFY_BASE_URL", "\"http://api.musixmatch.com/ws/1.1/\""
         buildConfigField "String", "API_KEY", "\"1c9e075968d686e586bc8bee13b82ca0\""
 
     }

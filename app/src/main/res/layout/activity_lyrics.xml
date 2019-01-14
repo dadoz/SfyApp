@@ -6,7 +6,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.application.mxm.soundtracks.ui.EmptyView
+        <com.application.sfy.ui.EmptyView
             android:id="@+id/lyricsEmptyViewId"
             android:visibility="gone"
             android:layout_width="match_parent"

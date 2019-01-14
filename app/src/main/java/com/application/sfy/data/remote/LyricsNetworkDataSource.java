@@ -1,8 +1,8 @@
-package com.application.mxm.soundtracks.data.remote;
+package com.application.sfy.data.remote;
 
-import com.application.mxm.soundtracks.data.LyricsDataSource;
-import com.application.mxm.soundtracks.data.model.Lyric;
-import com.application.mxm.soundtracks.data.remote.services.RetrofitServiceRx;
+import com.application.sfy.data.LyricsDataSource;
+import com.application.sfy.data.model.Lyric;
+import com.application.sfy.data.remote.services.RetrofitServiceRx;
 
 import javax.inject.Singleton;
 

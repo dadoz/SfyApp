@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.data;
+package com.application.sfy.data;
 
 import io.realm.Realm;
 

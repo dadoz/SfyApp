@@ -1,7 +1,7 @@
-package com.application.mxm.soundtracks.data.local;
+package com.application.sfy.data.local;
 
-import com.application.mxm.soundtracks.data.LyricsDataSource;
-import com.application.mxm.soundtracks.data.model.Lyric;
+import com.application.sfy.data.LyricsDataSource;
+import com.application.sfy.data.model.Lyric;
 
 import javax.inject.Singleton;
 

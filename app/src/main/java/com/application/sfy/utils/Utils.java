@@ -1,11 +1,11 @@
-package com.application.mxm.soundtracks.utils;
+package com.application.sfy.utils;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.widget.ImageView;
 
-import com.application.mxm.soundtracks.R;
+import com.application.sfy.R;
 import com.bumptech.glide.Glide;
 
 import java.io.InputStream;

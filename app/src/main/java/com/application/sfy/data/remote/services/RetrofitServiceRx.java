@@ -1,11 +1,11 @@
-package com.application.mxm.soundtracks.data.remote.services;
+package com.application.sfy.data.remote.services;
 
 
-import com.application.mxm.soundtracks.BuildConfig;
-import com.application.mxm.soundtracks.data.model.Lyric;
-import com.application.mxm.soundtracks.data.model.Track;
-import com.application.mxm.soundtracks.data.remote.services.gson.LyricsJsonDeserializer;
-import com.application.mxm.soundtracks.data.remote.services.gson.TrackJsonDeserializer;
+import com.application.sfy.BuildConfig;
+import com.application.sfy.data.model.Lyric;
+import com.application.sfy.data.model.Track;
+import com.application.sfy.data.remote.services.gson.LyricsJsonDeserializer;
+import com.application.sfy.data.remote.services.gson.TrackJsonDeserializer;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,7 +29,7 @@ public class RetrofitServiceRx {
             OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
             return new Retrofit.Builder()
-                    .baseUrl(BuildConfig.MXM_BASE_URL)
+                    .baseUrl(BuildConfig.SFY_BASE_URL)
                     .client(client)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()

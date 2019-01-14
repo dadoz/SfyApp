@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.lyric;
+package com.application.sfy.lyric;
 
 import dagger.Binds;
 import dagger.Module;

@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.data.remote;
+package com.application.sfy.data.remote;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

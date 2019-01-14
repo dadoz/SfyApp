@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context="com.application.mxm.soundtracks.MainActivity">
+    tools:context="com.application.sfy.MainActivity">
 
-    <com.application.mxm.soundtracks.ui.TrackInputDataView
+    <com.application.sfy.ui.TrackInputDataView
         android:id="@+id/trackInputDataViewId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

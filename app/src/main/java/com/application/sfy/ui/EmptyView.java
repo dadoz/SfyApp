@@ -1,10 +1,10 @@
-package com.application.mxm.soundtracks.ui;
+package com.application.sfy.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
-import com.application.mxm.soundtracks.R;
+import com.application.sfy.R;
 
 public class EmptyView extends LinearLayout {
 

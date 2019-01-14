@@ -1,4 +1,4 @@
-package com.application.mxm.soundtracks.di;
+package com.application.sfy.di;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
