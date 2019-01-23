@@ -1,4 +1,4 @@
-package com.application.sfy.tracklist;
+package com.application.sfy.modules.tracklist;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 
 import com.application.sfy.R;
 import com.application.sfy.data.model.Track;
-import com.application.sfy.lyric.LyricActivity;
 import com.application.sfy.ui.EmptyView;
 import com.application.sfy.utils.Utils;
 
@@ -33,7 +32,6 @@ import static com.application.sfy.MainActivity.TRACK_PARAMS_KEY;
  */
 public class TrackListActivity extends DaggerAppCompatActivity implements TrackContract.TrackView,
         TrackListAdapter.OnTrackItemClickListener, TrackListAdapter.OnTrackLoadMoreClickListener {
-    public static final String LYRICS_PARAMS_KEY = "LYRICS_PARAMS_KEY";
     private static final String TRACK_PARAMS_BUNDLE = "TRACK_PARAMS_BUNDLE";
     @BindView(R.id.trackRecyclerViewId)
     RecyclerView recyclerView;
@@ -45,7 +43,7 @@ public class TrackListActivity extends DaggerAppCompatActivity implements TrackC
     TrackPresenter presenter;
 
     private Unbinder unbinder;
-    //PAGE | PAGE_SIZE | COUNTRY | HAS_LYRICS
+    //PAGE | PAGE_SIZE
     private SparseArray<Object> params;
 
     @Override
@@ -175,23 +173,21 @@ public class TrackListActivity extends DaggerAppCompatActivity implements TrackC
 
     @Override
     public void onTrackItemClick(View view, Track track) {
-        Intent intent = LyricActivity.buildIntent(this, track.getTrackId(), track.getArtistName(),
-                track.getTrackName(), track.getAlbumCoverart100x100());
-        startActivity(intent);
+//        Intent intent = LyricActivity.buildIntent(this, track.getTrackId(), track.getArtistName(),
+//                track.getTrackName(), track.getAlbumCoverart100x100());
+//        startActivity(intent);
 
     }
 
     /**
      *
      * @param context
-     * @param country
      * @param pageSize
-     * @param hasLyricsCheckbox
      * @param initialPage
      * @return
      */
-    public static Intent buildIntent(Context context, String country, String pageSize, String hasLyricsCheckbox, String initialPage) {
-        Bundle bundle = Utils.buildTrackParams(country, pageSize, hasLyricsCheckbox, initialPage);
+    public static Intent buildIntent(Context context, String pageSize, String initialPage) {
+        Bundle bundle = Utils.buildTrackParams(pageSize, initialPage);
         Intent intent = new Intent(context, TrackListActivity.class);
         intent.putExtra(TRACK_PARAMS_KEY, bundle);
         return intent;
@@ -206,8 +202,7 @@ public class TrackListActivity extends DaggerAppCompatActivity implements TrackC
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         String lastPage = Integer.toString((((Integer[]) params.get(0))[0]));
-        Bundle bundle = Utils.buildTrackParams((String) params.get(2), (String) params.get(1),
-                (String) params.get(3), lastPage);
+        Bundle bundle = Utils.buildTrackParams((String) params.get(1), lastPage);
         savedInstanceState.putBundle(TRACK_PARAMS_BUNDLE, bundle);
     }
 

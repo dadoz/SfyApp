@@ -19,16 +19,18 @@ public class TrackNetworkDataSource extends RetrofitDataSourceBase implements Tr
     /**
      *
      * @param pages
-     * @param pageSize
-     * @param country
-     * @param fHasLyrics
      * @param apiKey
      * @return
      */
-    public Observable<List<Track>> getTracks(Integer[] pages, String pageSize, String country, String fHasLyrics, String apiKey) {
+    public Observable<List<Track>> getTracks(int pages,String trackName, String apiKey) {
+        return null;
+    }
+
+    public Observable<List<Track>> getTracks(String trackName, String apiKey) {
         return new RetrofitServiceRx().getSoundtrackRetrofit()
-                .getTracks(Integer.toString(pages[0]), pageSize, country, fHasLyrics, apiKey)
+                .getTracks(trackName, apiKey)
                 .compose(handleRxErrorsTransformer());
+
     }
 
     /**

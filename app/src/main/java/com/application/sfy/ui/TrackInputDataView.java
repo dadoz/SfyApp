@@ -6,8 +6,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 
 import com.application.sfy.R;
@@ -19,17 +17,10 @@ public class TrackInputDataView extends RelativeLayout {
     private static final String DEFAULT_COUNTRY = "US";
 
     @BindView(R.id.findButtonId)
-    Button findButton;
-    @BindView(R.id.pageSizeTextInputLayoutId)
-    TextInputLayout pageSizeTextInputLayout;
-    @BindView(R.id.countryTextInputLayoutId)
-    TextInputLayout countryTextInputLayout;
-    @BindView(R.id.hasLyricsCheckboxId)
-    CheckBox hasLyricsCheckbox;
-//    @State
-    String country;
-//    @State
-    String pageSize;
+    View findButton;
+    @BindView(R.id.songNameTextInputLayoutId)
+    TextInputLayout songNameTextInputLayout;
+    private String songName;
 
 
     public TrackInputDataView(Context context) {
@@ -50,8 +41,7 @@ public class TrackInputDataView extends RelativeLayout {
     private void initView() {
         View view = inflate(getContext(), R.layout.track_input_textinput_layout, this);
         ButterKnife.bind(this);
-        pageSizeTextInputLayout.getEditText().addTextChangedListener(new TextWatcherImpl("pageSize"));
-        countryTextInputLayout.getEditText().addTextChangedListener(new TextWatcherImpl("country"));
+        songNameTextInputLayout.getEditText().addTextChangedListener(new TextWatcherImpl("pageSize"));
     }
 
     public void setFindButtonOnClickListener(OnClickListener listener) {
@@ -59,43 +49,26 @@ public class TrackInputDataView extends RelativeLayout {
     }
 
     public String getpageSize() {
-        return pageSizeTextInputLayout.getEditText().getText().toString();
+        return songNameTextInputLayout.getEditText().getText().toString();
     }
 
-    public String getcountry() {
-        String value = countryTextInputLayout.getEditText().getText().toString();
-        if (value.isEmpty())
-            return DEFAULT_COUNTRY;
-        return value;
-    }
 
-    /**
-     * 
-     * @return
-     */
-    public boolean hasLyricsCheckbox() {
-        return hasLyricsCheckbox.isChecked();
-    }
+
 
     /**
      * 
      * @return
      */
     public boolean isValidInputData() {
-        return !countryTextInputLayout.getEditText().getText().toString().isEmpty() &&
-                !pageSizeTextInputLayout.getEditText().getText().toString().isEmpty() &&
-                Integer.parseInt(pageSizeTextInputLayout.getEditText().getText().toString()) <= 100;
+        return !songNameTextInputLayout.getEditText().getText().toString().isEmpty();
     }
 
     /**
      * 
      */
     public void setErrorInputData() {
-        if (countryTextInputLayout.getEditText().getText().toString().isEmpty())
-            countryTextInputLayout.setError(getContext().getString(R.string.no_input_data));
-
-        if (pageSizeTextInputLayout.getEditText().getText().toString().isEmpty())
-            pageSizeTextInputLayout.setError(getContext().getString(R.string.no_input_data));
+        if (songNameTextInputLayout.getEditText().getText().toString().isEmpty())
+            songNameTextInputLayout.setError(getContext().getString(R.string.no_input_data));
     }
 
     /**
@@ -120,18 +93,14 @@ public class TrackInputDataView extends RelativeLayout {
         @Override
         public void afterTextChanged(Editable s) {
             switch (type) {
-                case "country":
-                    country = countryTextInputLayout.getEditText().getText().toString();
-                    countryTextInputLayout.setError(null);
-                    break;
                 case "pageSize":
-                    pageSize = pageSizeTextInputLayout.getEditText().getText().toString();
-                    if (!pageSize.isEmpty() &&
-                            Integer.parseInt(pageSize.toString()) > 100) {
-                        pageSizeTextInputLayout.setError(getContext().getString(R.string.max_default));
+                    songName = songNameTextInputLayout.getEditText().getText().toString();
+                    if (songName.isEmpty()) {
+                        songNameTextInputLayout.setError(getContext().getString(R.string.max_default));
                         return;
                     }
-                    pageSizeTextInputLayout.setError(null);
+                    //hide error
+                    songNameTextInputLayout.setError(null);
                     break;
             }
         }

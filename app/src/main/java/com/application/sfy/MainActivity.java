@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.application.sfy.tracklist.TrackListActivity;
+import com.application.sfy.modules.tracklist.TrackListActivity;
 import com.application.sfy.ui.TrackInputDataView;
 
 import butterknife.BindView;
@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        Intent intent = TrackListActivity.buildIntent(this, trackInputDataView.getcountry(),
+        Intent intent = TrackListActivity.buildIntent(this,
                 trackInputDataView.getpageSize(),
-                trackInputDataView.hasLyricsCheckbox() ? "1" : "0", INIT_PAGE);
+                INIT_PAGE);
         startActivity(intent);
     }
 }

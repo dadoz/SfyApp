@@ -1,4 +1,4 @@
-package com.application.sfy.tracklist;
+package com.application.sfy.modules.tracklist;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

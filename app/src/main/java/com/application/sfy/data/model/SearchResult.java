@@ -10,9 +10,6 @@ public class SearchResult {
     @SerializedName("album")
     @Expose
     private Album album;
-    @SerializedName("artists")
-    @Expose
-    private List<Artist_> artists = null;
     @SerializedName("disc_number")
     @Expose
     private Integer discNumber;
@@ -22,12 +19,6 @@ public class SearchResult {
     @SerializedName("explicit")
     @Expose
     private Boolean explicit;
-    @SerializedName("external_ids")
-    @Expose
-    private ExternalIds externalIds;
-    @SerializedName("external_urls")
-    @Expose
-    private ExternalUrls___ externalUrls;
     @SerializedName("href")
     @Expose
     private String href;
@@ -67,13 +58,6 @@ public class SearchResult {
         this.album = album;
     }
 
-    public List<Artist_> getArtists() {
-        return artists;
-    }
-
-    public void setArtists(List<Artist_> artists) {
-        this.artists = artists;
-    }
 
     public Integer getDiscNumber() {
         return discNumber;
@@ -99,21 +83,6 @@ public class SearchResult {
         this.explicit = explicit;
     }
 
-    public ExternalIds getExternalIds() {
-        return externalIds;
-    }
-
-    public void setExternalIds(ExternalIds externalIds) {
-        this.externalIds = externalIds;
-    }
-
-    public ExternalUrls___ getExternalUrls() {
-        return externalUrls;
-    }
-
-    public void setExternalUrls(ExternalUrls___ externalUrls) {
-        this.externalUrls = externalUrls;
-    }
 
     public String getHref() {
         return href;

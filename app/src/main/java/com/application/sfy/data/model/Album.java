@@ -14,9 +14,6 @@ public class Album {
     @SerializedName("artists")
     @Expose
     private List<Artist> artists = null;
-    @SerializedName("external_urls")
-    @Expose
-    private ExternalUrls_ externalUrls;
     @SerializedName("href")
     @Expose
     private String href;
@@ -59,14 +56,6 @@ public class Album {
 
     public void setArtists(List<Artist> artists) {
         this.artists = artists;
-    }
-
-    public ExternalUrls_ getExternalUrls() {
-        return externalUrls;
-    }
-
-    public void setExternalUrls(ExternalUrls_ externalUrls) {
-        this.externalUrls = externalUrls;
     }
 
     public String getHref() {

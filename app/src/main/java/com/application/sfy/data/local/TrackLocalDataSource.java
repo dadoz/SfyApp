@@ -24,17 +24,28 @@ import io.realm.Realm;
 public class TrackLocalDataSource implements TrackDataSource {
     /**
      *
-     * @param pages
-     * @param pageSize
-     * @param country
-     * @param fHasLyrics
      * @param apiKey
      * @return
      */
     @Override
-    public Observable<List<Track>> getTracks(Integer[] pages, String pageSize, String country, String fHasLyrics, String apiKey) {
-        return Observable.range(pages[0], pages.length)// Integer.parseInt(page) == 1 ? Integer.parseInt(page) : Integer.parseInt(page) - 1) //counting from 1 to last page
-                .compose(getPagedTracksTransformer(pageSize, country, fHasLyrics));
+    public Observable<List<Track>> getTracks(int pages, String songName, String apiKey) {
+        //TODO paginate
+//        return Observable.range(pages[0], pages.length)// Integer.parseInt(page) == 1 ? Integer.parseInt(page) : Integer.parseInt(page) - 1) //counting from 1 to last page
+//                .compose(getPagedTracksTransformer(pageSize, country, fHasLyrics));
+        return null;
+    }
+
+    @Override
+    public Observable<List<Track>> getTracks(String songName, String apiKey) {
+        return Observable
+                .just(songName)
+                .flatMap(params -> getTrackMap(params)
+                        .map(trackMap -> {
+                            try (Realm realm = Realm.getDefaultInstance()) {
+                                //detach from realm -> since there's a problem with adding item in same list
+                                return realm.copyFromRealm(trackMap.getTrackList());
+                            }
+                        }));
     }
 
     /**
@@ -105,7 +116,6 @@ public class TrackLocalDataSource implements TrackDataSource {
     public ObservableTransformer<Integer, List<Track>> getPagedTracksTransformer(String pageSize,
                                                                                  String country, String fHasLyrics) {
         return obs -> obs
-                .doOnNext(currentPage -> Log.e(getClass().getName(), "------- " + currentPage))
                 .flatMap(currentPage -> Observable.just(Utils.getTrackParamsKey(Integer.toString(currentPage), pageSize, country, fHasLyrics))
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap(params -> getTrackMap(params)

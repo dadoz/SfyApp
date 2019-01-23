@@ -1,4 +1,4 @@
-package com.application.sfy.tracklist;
+package com.application.sfy.modules.tracklist;
 
 import dagger.Binds;
 import dagger.Module;

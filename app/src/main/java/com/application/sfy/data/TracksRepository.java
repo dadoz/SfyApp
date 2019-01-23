@@ -4,7 +4,6 @@ import com.application.sfy.BuildConfig;
 import com.application.sfy.data.local.Local;
 import com.application.sfy.data.model.Track;
 import com.application.sfy.data.remote.Remote;
-import com.application.sfy.utils.Utils;
 
 import java.util.List;
 
@@ -31,19 +30,27 @@ public class TracksRepository {
      * get cached or network data
      * @return
      */
-    public Observable<List<Track>> getTracks(Integer[] pages, String pageSize, String country, String fHasLyrics) {
-        //set params key
-        String paramsKey = Utils.getTrackParamsKey(Integer.toString(pages[pages.length -1]), pageSize, country, fHasLyrics);
+    public Observable<List<Track>> getTracks(String trackName) {
 
         //show data from cache
-       if (localDataSource.hasTracks(paramsKey)) {
-            return localDataSource.getTracks(pages, pageSize, country, fHasLyrics, BuildConfig.API_KEY);
+       if (localDataSource.hasTracks(trackName)) {
+            return localDataSource.getTracks(trackName, BuildConfig.API_KEY);
         }
 
         //show data from netwkor and added on cache if some result
         return networkDataSource
-                .getTracks(pages, pageSize, country, fHasLyrics, BuildConfig.API_KEY)
-                .doOnNext(list -> localDataSource.setTracks(list, paramsKey));
+                .getTracks(trackName, BuildConfig.API_KEY)
+                .doOnNext(list -> localDataSource.setTracks(list, trackName));
+    }
+
+    /**
+     * TODO implement pagination
+     * @param page
+     * @param trackName
+     * @return
+     */
+    public Observable<List<Track>> getTracks(int page, String trackName) {
+        return null;
     }
 
     public void refreshCache() {

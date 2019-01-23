@@ -15,16 +15,12 @@ public class Utils {
      * build params to get request
      * @param page
      * @param pageSize
-     * @param country
-     * @param fHasLyrics
      * @return
      */
-    public static Bundle buildTrackParams(String country, String pageSize, String fHasLyrics, String page) {
+    public static Bundle buildTrackParams(String pageSize, String page) {
         Bundle bundle = new Bundle();
         bundle.putString("PAGE", page);
         bundle.putString("PAGE_SIZE", pageSize);
-        bundle.putString("COUNTRY", country);
-        bundle.putString("FHASLYRICS", fHasLyrics);
         return bundle;
     }
 

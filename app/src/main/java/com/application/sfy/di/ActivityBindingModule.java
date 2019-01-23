@@ -1,9 +1,7 @@
 package com.application.sfy.di;
 
-import com.application.sfy.lyric.LyricActivity;
-import com.application.sfy.lyric.LyricPresenterModule;
-import com.application.sfy.tracklist.TrackListActivity;
-import com.application.sfy.tracklist.TrackPresenterModule;
+import com.application.sfy.modules.tracklist.TrackListActivity;
+import com.application.sfy.modules.tracklist.TrackPresenterModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -21,8 +19,5 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = TrackPresenterModule.class)
     abstract TrackListActivity tasksActivity();
 
-    @ActivityScoped
-    @ContributesAndroidInjector(modules = LyricPresenterModule.class)
-    abstract LyricActivity lyricActivity();
 
 }

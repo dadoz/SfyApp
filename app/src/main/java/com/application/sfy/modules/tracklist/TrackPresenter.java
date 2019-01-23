@@ -1,4 +1,4 @@
-package com.application.sfy.tracklist;
+package com.application.sfy.modules.tracklist;
 
 import android.util.Log;
 import android.util.SparseArray;
@@ -58,10 +58,7 @@ public class TrackPresenter implements TrackContract.TrackPresenterInterface {
 
     /**
      * params
-     * 0 -> page
-     * 1 -> pageSize
-     * 2 -> country
-     * 3 -> hasLyrics
+     * 0 -> songname
      *
      * retrieve item obs
      * @param params
@@ -69,23 +66,17 @@ public class TrackPresenter implements TrackContract.TrackPresenterInterface {
     @Override
     public void retrieveItems(SparseArray<Object> params) {
         Log.e(TAG, params.toString());
-        //set params
-//        this.params = params;
 
         //build obs
         compositeDisposable.add(repository
-                .getTracks((Integer[]) params.get(0), params.get(1).toString(), params.get(2).toString(), params.get(3).toString())
+                .getTracks(params.get(0).toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(composeLoaderTransformer(loader))
                 .doOnError(Throwable::printStackTrace)
                 .subscribe(
-                        items -> {
-                            trackView.get().onRenderData(items);
-                        },
-                        error -> {
-                            trackView.get().onError(error.getMessage());
-                        }));
+                        items -> trackView.get().onRenderData(items),
+                        error -> trackView.get().onError(error.getMessage())));
     }
 
 

@@ -17,8 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".tracklist.TrackListActivity"/>
-        <activity android:name=".lyric.LyricActivity"/>
+        <activity android:name=".modules.tracklist.TrackListActivity"/>
     </application>
 
 </manifest>

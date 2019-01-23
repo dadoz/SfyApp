@@ -3,7 +3,6 @@ package com.application.sfy.di;
 import android.app.Application;
 
 import com.application.sfy.SoundtrackApplication;
-import com.application.sfy.data.LyricsRepositoryModule;
 import com.application.sfy.data.TracksRepositoryModule;
 
 import javax.inject.Singleton;
@@ -15,7 +14,6 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
-        LyricsRepositoryModule.class,
         TracksRepositoryModule.class,
         ApplicationModule.class,
         ActivityBindingModule.class,
