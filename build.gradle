@@ -16,7 +16,7 @@ ext {
     mockwebserverVersion = '3.6.0'
     glassfishannotationVersion = '10.0-b28'
     junitVersion = '4.12'
-    daggerVersion = '2.11'
+    daggerVersion = '2.21'
     espressoVersion = '2.2.2'
     butterknifeVersion = '8.8.1'
 }
@@ -27,7 +27,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.3.0'
         //realmio
         classpath "io.realm:realm-gradle-plugin:5.1.0"
     }
