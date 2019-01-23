@@ -6,14 +6,12 @@ import android.util.Log;
 import com.application.sfy.data.TrackDataSource;
 import com.application.sfy.data.model.Track;
 import com.application.sfy.data.model.TrackMap;
-import com.application.sfy.utils.Utils;
 
 import java.util.List;
 
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.realm.Realm;
 
@@ -39,13 +37,33 @@ public class TrackLocalDataSource implements TrackDataSource {
     public Observable<List<Track>> getTracks(String songName, String apiKey) {
         return Observable
                 .just(songName)
-                .flatMap(params -> getTrackMap(params)
-                        .map(trackMap -> {
-                            try (Realm realm = Realm.getDefaultInstance()) {
-                                //detach from realm -> since there's a problem with adding item in same list
-                                return realm.copyFromRealm(trackMap.getTrackList());
-                            }
-                        }));
+                .flatMap(params -> getTrackMap(params).map(TrackMap::getTrackList));
+    }
+
+
+    /**
+     * get tracks from storage
+     * @param paramsKey
+     * @return
+     */
+    public Observable<TrackMap> getTrackMap(String paramsKey) {
+        return Observable.just(Realm.getDefaultInstance())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(realm -> queryTrackMap(realm, paramsKey)
+                        .<TrackMap>asFlowable()
+                        .toObservable());
+    }
+
+    /**
+     * query trackMap
+     * @param realm
+     * @param paramsKey
+     * @return
+     */
+    private TrackMap queryTrackMap(Realm realm, String paramsKey) {
+        return realm.where(TrackMap.class)
+                .equalTo("trackParamsKey", paramsKey)
+                .findFirst();
     }
 
     /**
@@ -81,49 +99,4 @@ public class TrackLocalDataSource implements TrackDataSource {
         }
     }
 
-    /**
-     * get tracks from storage
-     * @param paramsKey
-     * @return
-     */
-    public Observable<TrackMap> getTrackMap(String paramsKey) {
-        return Observable.just(Realm.getDefaultInstance())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap(realm -> queryTrackMap(realm, paramsKey)
-                        .<TrackMap>asFlowable()
-                        .toObservable());
-    }
-
-    /**
-     * query trackMap
-     * @param realm
-     * @param paramsKey
-     * @return
-     */
-    private TrackMap queryTrackMap(Realm realm, String paramsKey) {
-        return realm.where(TrackMap.class)
-                .equalTo("trackParamsKey", paramsKey)
-                .findFirst();
-    }
-
-    /**
-     * get paged tracks transformer
-     * @param pageSize
-     * @param country
-     * @param fHasLyrics
-     * @return
-     */
-    public ObservableTransformer<Integer, List<Track>> getPagedTracksTransformer(String pageSize,
-                                                                                 String country, String fHasLyrics) {
-        return obs -> obs
-                .flatMap(currentPage -> Observable.just(Utils.getTrackParamsKey(Integer.toString(currentPage), pageSize, country, fHasLyrics))
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .flatMap(params -> getTrackMap(params)
-                                .map(trackMap -> {
-                                    try (Realm realm = Realm.getDefaultInstance()) {
-                                        //detach from realm -> since there's a problem with adding item in same list
-                                        return realm.copyFromRealm(trackMap.getTrackList());
-                                    }
-                                })));
-    }
 }
