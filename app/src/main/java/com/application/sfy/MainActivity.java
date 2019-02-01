@@ -12,10 +12,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TRACK_PARAMS_KEY = "TRACK_PARAMS_KEY";
-    private static final String INIT_PAGE = "1";
 
     @BindView(R.id.trackInputDataViewId)
     TrackInputDataView trackInputDataView;
@@ -51,8 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         Intent intent = TrackListActivity.buildIntent(this,
-                trackInputDataView.getpageSize(),
-                INIT_PAGE);
+                trackInputDataView.getTrackName());
         startActivity(intent);
     }
 }

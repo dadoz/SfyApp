@@ -31,16 +31,14 @@ public class TracksRepository {
      * @return
      */
     public Observable<List<Track>> getTracks(String trackName) {
-
-        //show data from cache
-       if (localDataSource.hasTracks(trackName)) {
-            return localDataSource.getTracks(trackName, BuildConfig.API_KEY);
-        }
-
-        //show data from netwkor and added on cache if some result
         return networkDataSource
-                .getTracks(trackName, BuildConfig.API_KEY)
-                .doOnNext(list -> localDataSource.setTracks(list, trackName));
+            .getTracks(trackName, BuildConfig.API_KEY)
+            .doOnNext(list -> localDataSource.setTracks(list, trackName));
+
+        //TODO show data from cache
+//       if (localDataSource.hasTracks(trackName)) {
+//            return localDataSource.getTracks(trackName, BuildConfig.API_KEY);
+//        }
     }
 
     /**
@@ -50,10 +48,6 @@ public class TracksRepository {
      * @return
      */
     public Observable<List<Track>> getTracks(int page, String trackName) {
-        return null;
-    }
-
-    public void refreshCache() {
-        //TODO implement it
+        throw new UnsupportedOperationException("Method not implemented");
     }
 }

@@ -17,7 +17,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
-public class RepoOwnerInputTest {
+public class TrackListTest {
     @Rule
     public ActivityTestRule<MainActivity> mRule = new ActivityTestRule<>(MainActivity.class);
 
@@ -27,25 +27,9 @@ public class RepoOwnerInputTest {
 
     }
     @Test
-    public void countryIsEmptyEditTextTest() {
-        onView(withId(R.id.countryTextInputLayoutId))
+    public void songNameIsEmptyEditTextTest() {
+        onView(withId(R.id.songNameTextInputLayoutId))
                 .check(matches(withText("")));
-    }
-    @Test
-    public void countryHasErrorTextInputLayoutTest() {
-        onView(withId(R.id.countryTextInputLayoutId))
-                .check(matches(hasTextInputLayoutErrorText(mRule.getActivity().getString(R.string.no_input_data))));
-    }
-
-    @Test
-    public void pageSizeIsEmptyEditTextTest() {
-        onView(withId(R.id.pageSizeTextInputLayoutId))
-                .check(matches(withText("")));
-    }
-    @Test
-    public void pageSizeHasErrorTextInputLayoutTest() {
-        onView(withId(R.id.pageSizeTextInputLayoutId))
-                .check(matches(hasTextInputLayoutErrorText(mRule.getActivity().getString(R.string.no_input_data))));
     }
 
     /**

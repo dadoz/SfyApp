@@ -1,6 +1,5 @@
 package com.application.sfy.utils;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.widget.ImageView;
@@ -8,19 +7,18 @@ import android.widget.ImageView;
 import com.application.sfy.R;
 import com.bumptech.glide.Glide;
 
-import java.io.InputStream;
-
 public class Utils {
+
+    private static final String TRACK_NAME = "TRACK_NAME";
+
     /**
      * build params to get request
-     * @param page
-     * @param pageSize
+     * @param trackName
      * @return
      */
-    public static Bundle buildTrackParams(String pageSize, String page) {
+    public static Bundle buildTrackParams(String trackName) {
         Bundle bundle = new Bundle();
-        bundle.putString("PAGE", page);
-        bundle.putString("PAGE_SIZE", pageSize);
+        bundle.putString(TRACK_NAME, trackName);
         return bundle;
     }
 
@@ -29,70 +27,19 @@ public class Utils {
      * @param bundle
      * @return
      */
-    public static SparseArray<Object> getTrackParamsFromBundle(Bundle bundle) {
-        SparseArray<Object> array = new SparseArray<>();
-        array.put(0, new Integer[] { Integer.parseInt(bundle.getString("PAGE", "1")) });
-        array.put(1, bundle.getString("PAGE_SIZE", null));
-        array.put(2, bundle.getString("COUNTRY", null));
-        array.put(3, bundle.getString("FHASLYRICS", null));
-        return array;
-    }
-
-    /**
-     *
-     *
-     * @param artistName
-     *@param trackName
-     * @param trackId  @return
-     */
-    public static Bundle buildLyricsParams(String trackId, String artistName, String trackName, String avatarUrl) {
-        Bundle bundle = new Bundle();
-        bundle.putString("TRACK_ID", trackId);
-        bundle.putString("ARTIST_NAME", artistName);
-        bundle.putString("TRACK_NAME", trackName);
-        bundle.putString("AVATAR_URL", avatarUrl);
-        return bundle;
-    }
-
-    /**
-     *
-     * @param bundle
-     * @return
-     */
-    public static SparseArray<String> getLyricsParamsFromBundle(Bundle bundle) {
+    public static SparseArray<String> getTrackParamsFromBundle(Bundle bundle) {
         SparseArray<String> array = new SparseArray<>();
-        array.put(0, bundle.getString("TRACK_ID", null));
-        array.put(1, bundle.getString("ARTIST_NAME", null));
-        array.put(2, bundle.getString("TRACK_NAME", null));
-        array.put(3, bundle.getString("AVATAR_URL", null));
+        array.put(0, bundle.getString(TRACK_NAME, null));
         return array;
     }
 
     /**
-     * read file from assets, depending on filename provided
-     * @param assets
-     * @param filename
-     * @return
+     *
+     * @param params
      */
-    public static String readFileFromAssets(AssetManager assets, String filename) {
-        try {
-            InputStream is = assets.open(filename);
-            int size = is.available();
-
-            // Read the entire asset into a local byte buffer.
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            // Convert the buffer into a string.
-            return new String(buffer);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public static String getTrackParamsKey(String page, String pageSize, String country, String fHasLyrics) {
-        return page + "_" +pageSize + "_" + country + "_" + fHasLyrics;
+    public static Bundle putTrackParamsFromBundle(SparseArray<String> params) {
+        String trackName = params.get(0);
+        return Utils.buildTrackParams(trackName);
     }
 
     /**
@@ -108,7 +55,7 @@ public class Utils {
 
         Glide.with(avatarImageView.getContext())
                 .load(avatarUrl)
-                .placeholder(R.mipmap.github_placeholder)
+                .placeholder(R.mipmap.noicon_placeholder)
                 .into(avatarImageView);
     }
 }

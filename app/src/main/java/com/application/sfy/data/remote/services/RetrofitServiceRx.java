@@ -26,7 +26,6 @@ public class RetrofitServiceRx {
                     .client(client)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
-//                            .registerTypeAdapter(new TypeToken<List<Track>>(){}.getType(), new TrackJsonDeserializer())
                             .create()))
                     .build()
                     .create(TracksService.class);

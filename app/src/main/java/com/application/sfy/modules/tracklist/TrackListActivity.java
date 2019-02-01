@@ -32,7 +32,6 @@ import static com.application.sfy.MainActivity.TRACK_PARAMS_KEY;
  */
 public class TrackListActivity extends DaggerAppCompatActivity implements TrackContract.TrackView,
         TrackListAdapter.OnTrackItemClickListener, TrackListAdapter.OnTrackLoadMoreClickListener {
-    private static final String TRACK_PARAMS_BUNDLE = "TRACK_PARAMS_BUNDLE";
     @BindView(R.id.trackRecyclerViewId)
     RecyclerView recyclerView;
     @BindView(R.id.trackProgressbarId)
@@ -43,14 +42,16 @@ public class TrackListActivity extends DaggerAppCompatActivity implements TrackC
     TrackPresenter presenter;
 
     private Unbinder unbinder;
-    //PAGE | PAGE_SIZE
-    private SparseArray<Object> params;
+    private SparseArray<String> params;
+    private static final String TRACK_PARAMS_BUNDLE = "TRACK_PARAMS_BUNDLE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_list);
         unbinder = ButterKnife.bind(this);
+
+        //saving params in instanceState
         setParams(savedInstanceState);
         onInitView();
     }
@@ -64,6 +65,11 @@ public class TrackListActivity extends DaggerAppCompatActivity implements TrackC
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (presenter != null) {
+            presenter.unsubscribe();
+            presenter.deleteView();
+        }
+
         if (unbinder != null)
             unbinder.unbind();
     }
@@ -84,17 +90,10 @@ public class TrackListActivity extends DaggerAppCompatActivity implements TrackC
      */
     private void setParams(Bundle savedInstanceState) {
         //get params from savedInstance
-        if (savedInstanceState != null) {
-            Bundle bundle = savedInstanceState.getBundle(TRACK_PARAMS_BUNDLE);
-
-            params = Utils.getTrackParamsFromBundle(bundle);
-
-            params = presenter.getAllPagedParams(params);
-            return;
-        }
-
         //get params from intent
-        params = Utils.getTrackParamsFromBundle(getIntent().getExtras().getBundle(TRACK_PARAMS_KEY));
+        params = savedInstanceState != null ?
+                Utils.getTrackParamsFromBundle(savedInstanceState.getBundle(TRACK_PARAMS_BUNDLE)) :
+                Utils.getTrackParamsFromBundle(getIntent().getExtras().getBundle(TRACK_PARAMS_KEY));
     }
 
     /**
@@ -162,48 +161,37 @@ public class TrackListActivity extends DaggerAppCompatActivity implements TrackC
         recyclerView.setVisibility(View.VISIBLE);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        if (recyclerView.getAdapter() == null) {
-            recyclerView.setAdapter(new TrackListAdapter(items, this, this));
-        } else {
-            ((TrackListAdapter) recyclerView.getAdapter()).addItems(items);
-            recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
-        }
-
+        recyclerView.setAdapter(new TrackListAdapter(items, this, this));
     }
 
     @Override
     public void onTrackItemClick(View view, Track track) {
-//        Intent intent = LyricActivity.buildIntent(this, track.getTrackId(), track.getArtistName(),
-//                track.getTrackName(), track.getAlbumCoverart100x100());
-//        startActivity(intent);
-
-    }
-
-    /**
-     *
-     * @param context
-     * @param pageSize
-     * @param initialPage
-     * @return
-     */
-    public static Intent buildIntent(Context context, String pageSize, String initialPage) {
-        Bundle bundle = Utils.buildTrackParams(pageSize, initialPage);
-        Intent intent = new Intent(context, TrackListActivity.class);
-        intent.putExtra(TRACK_PARAMS_KEY, bundle);
-        return intent;
+        //TODO implement
+        throw new UnsupportedOperationException("method ot impl");
     }
 
     @Override
     public void onTrackLoadMoreClick(View view) {
-        presenter.retrieveMoreItems(params);
+        //TODO implement
+        throw new UnsupportedOperationException("method ot impl");
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        String lastPage = Integer.toString((((Integer[]) params.get(0))[0]));
-        Bundle bundle = Utils.buildTrackParams((String) params.get(1), lastPage);
+        Bundle bundle = Utils.putTrackParamsFromBundle(params);
         savedInstanceState.putBundle(TRACK_PARAMS_BUNDLE, bundle);
     }
 
+    /**
+     *
+     * @param context
+     * @return
+     */
+    public static Intent buildIntent(Context context, String trackName) {
+        Bundle bundle = Utils.buildTrackParams(trackName);
+        Intent intent = new Intent(context, TrackListActivity.class);
+        intent.putExtra(TRACK_PARAMS_KEY, bundle);
+        return intent;
+    }
 }

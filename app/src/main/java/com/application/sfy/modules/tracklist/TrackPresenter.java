@@ -64,7 +64,7 @@ public class TrackPresenter implements TrackContract.TrackPresenterInterface {
      * @param params
      */
     @Override
-    public void retrieveItems(SparseArray<Object> params) {
+    public void retrieveItems(SparseArray<String> params) {
         Log.e(TAG, params.toString());
 
         //build obs
@@ -93,49 +93,5 @@ public class TrackPresenter implements TrackContract.TrackPresenterInterface {
                 .doOnError(error -> loader.hide.run())
                 .doOnNext(res -> loader.hide.run());
     }
-
-    /**
-     *
-     * @return
-     */
-//    public SparseArray<Object> getParams() {
-//        return params;
-//    }
-
-    /**
-     *
-     * @return
-     */
-    public SparseArray<Object> getMoreTracksParams(SparseArray<Object> params) {
-        Integer[] pages = (Integer[]) params.get(0);
-        params.setValueAt(0, new Integer[] {pages[pages.length -1] + 1});
-        return params;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public SparseArray<Object> getAllPagedParams(SparseArray<Object> params) {
-        Integer[] pages = (Integer[]) params.get(0);
-        Integer[] allPages = new Integer[pages[pages.length -1]];
-        for (int i = 0; i < allPages.length; i++) {
-            allPages[i] = i +1;
-        }
-
-        params.setValueAt(0, allPages);
-        return params;
-    }
-
-    /**
-     *
-     */
-    public void retrieveMoreItems(SparseArray<Object> params) {
-        //set new pages
-        params = getMoreTracksParams(params);
-        //retrieve items
-        retrieveItems(params);
-    }
-
 
 }

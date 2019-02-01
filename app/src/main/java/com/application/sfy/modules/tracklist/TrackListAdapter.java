@@ -83,10 +83,6 @@ public class TrackListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         notifyDataSetChanged();
     }
 
-    public List<Track> getItems() {
-        return items;
-    }
-
     /**
      * Track view holder
      */
@@ -124,8 +120,6 @@ public class TrackListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
 
     }
-
-
 
     /**
      * track item click cb

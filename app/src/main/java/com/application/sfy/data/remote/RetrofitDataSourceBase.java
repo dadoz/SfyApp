@@ -10,8 +10,7 @@ public class RetrofitDataSourceBase {
     protected <T> ObservableTransformer<T, T> handleRxErrorsTransformer() {
         return upstream -> upstream
                 .onErrorResumeNext(error -> {
-                    //else generic no net error
-                    return Observable.error(new Throwable("Generic exception", error));
+                    return Observable.error(new Throwable("Network exception", error));
                 });
     }
 }

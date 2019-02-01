@@ -21,15 +21,13 @@ import io.realm.Realm;
 @Singleton
 public class TrackLocalDataSource implements TrackDataSource {
     /**
-     *
+     * TODO with pagination
      * @param apiKey
      * @return
      */
     @Override
     public Observable<List<Track>> getTracks(int pages, String songName, String apiKey) {
         //TODO paginate
-//        return Observable.range(pages[0], pages.length)// Integer.parseInt(page) == 1 ? Integer.parseInt(page) : Integer.parseInt(page) - 1) //counting from 1 to last page
-//                .compose(getPagedTracksTransformer(pageSize, country, fHasLyrics));
         return null;
     }
 

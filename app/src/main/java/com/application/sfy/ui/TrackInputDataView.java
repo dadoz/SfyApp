@@ -14,13 +14,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TrackInputDataView extends RelativeLayout {
-    private static final String DEFAULT_COUNTRY = "US";
 
     @BindView(R.id.findButtonId)
     View findButton;
     @BindView(R.id.songNameTextInputLayoutId)
     TextInputLayout songNameTextInputLayout;
-    private String songName;
 
 
     public TrackInputDataView(Context context) {
@@ -39,21 +37,18 @@ public class TrackInputDataView extends RelativeLayout {
     }
 
     private void initView() {
-        View view = inflate(getContext(), R.layout.track_input_textinput_layout, this);
+        inflate(getContext(), R.layout.track_input_textinput_layout, this);
         ButterKnife.bind(this);
-        songNameTextInputLayout.getEditText().addTextChangedListener(new TextWatcherImpl("pageSize"));
+        songNameTextInputLayout.getEditText().addTextChangedListener(new TextWatcherImpl("trackName"));
     }
 
     public void setFindButtonOnClickListener(OnClickListener listener) {
         findButton.setOnClickListener(listener);
     }
 
-    public String getpageSize() {
+    public String getTrackName() {
         return songNameTextInputLayout.getEditText().getText().toString();
     }
-
-
-
 
     /**
      * 
@@ -93,12 +88,7 @@ public class TrackInputDataView extends RelativeLayout {
         @Override
         public void afterTextChanged(Editable s) {
             switch (type) {
-                case "pageSize":
-                    songName = songNameTextInputLayout.getEditText().getText().toString();
-                    if (songName.isEmpty()) {
-                        songNameTextInputLayout.setError(getContext().getString(R.string.max_default));
-                        return;
-                    }
+                case "trackName":
                     //hide error
                     songNameTextInputLayout.setError(null);
                     break;

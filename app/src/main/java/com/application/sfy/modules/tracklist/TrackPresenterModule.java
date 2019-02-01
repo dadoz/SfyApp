@@ -6,5 +6,5 @@ import dagger.Module;
 @Module
 public abstract class TrackPresenterModule {
     @Binds
-    abstract TrackContract.TrackPresenterInterface taskPresenter(TrackPresenter presenter);
+    abstract TrackContract.TrackPresenterInterface trackPresenter(TrackPresenter presenter);
 }

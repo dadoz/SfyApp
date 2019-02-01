@@ -17,7 +17,7 @@ public interface TrackContract {
     }
     interface TrackPresenterInterface extends BasePresenter {
         void unsubscribe();
-        void retrieveItems(SparseArray<Object> params);
+        void retrieveItems(SparseArray<String> params);
         void bindView(TrackView view);
         void deleteView();
     }
